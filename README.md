@@ -1,8 +1,31 @@
-<img align="left" height="60" src="golae.png" alt="Golae">
+<img align="left" height="60" src="images/golae.png" alt="Golae">
 
 # GOLAE
 
 Get user agent and IP from a visitor to your redirection website
+
+## Use
+* To assign a new URL (change the localhost IP by the IP you wish):
+
+```
+http://127.0.0.1/assign
+
+```
+<img align="center" height="150" src="images/assign.png" alt="assign">
+
+
+* See the log of the users connected
+
+```
+http://127.0.0.1/doc
+
+```
+* The url to redirect
+```
+http://127.0.0.1/
+
+```
+
 
 ## Steps
 
@@ -30,7 +53,7 @@ docker save golae:1.0 | gzip > golae_1.0.tar.gz
 2. Load in the destination server:
 
 ```commandline
-docker load < nyu_1.0.tar.gz
+docker load < golae_1.0.tar.gz
 
 ```
 
