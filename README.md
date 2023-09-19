@@ -90,7 +90,6 @@ services:
 ```commandline
 docker compose down
 ```
-
 * Stop and remove the container manually:
 
 ```commandline
@@ -106,6 +105,18 @@ docker rmi golae:latest
 ```
 docker image prune
 ```
+* See the log of the container
+```
+docker logs -f golae
+```
+
+* Exer a command inside the container or enter to it
+
+```
+docker exec -it golae bash
+docker exec -it golae command
+```
+
 
 
 

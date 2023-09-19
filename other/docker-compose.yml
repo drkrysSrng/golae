@@ -33,7 +33,7 @@ services:
         ipv4_address: 172.20.1.4
     ports:
       - 5000:5000
-    command: sleep 3600
+    command: sh -c "apt update && apt install iproute2 -y && ip route del default dev eth0 && ip route add default via 172.20.1.2 dev eth0 && sleep 3600"
     container_name: myapp
 
   redroid:
