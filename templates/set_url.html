@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set URL Variable</title>
+    <style>
+        body {
+            background-color: #082a3e;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        h1 {
+            background-color: #0096b9;
+            padding: 10px;
+        }
+        form {
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: lightblue;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Set URL Variable</h1>
+    <form method="POST" action="/set_url">
+        <label for="url_variable">Enter URL Variable:</label>
+        <input type="text" id="url_variable" name="url_variable">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

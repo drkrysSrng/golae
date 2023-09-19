@@ -1,0 +1,83 @@
+version: '2.4'
+
+services:
+  tun2socks:
+    image: ghcr.io/xjasonlyu/tun2socks:latest
+    mem_limit: 1000000000
+    memswap_limit: 2000000000
+    mem_reservation: 512m
+    cap_add:
+      - NET_ADMIN
+    devices:
+        - '/dev/net/tun:/dev/net/tun'
+    environment:
+      - LOGLEVEL=info             # default
+      - TUN=tun0                  # default
+      - ADDR=198.18.0.1/15        # default
+      - MTU=9000                  # default
+      - PROXY=USER:PASSWORD@URL:PORT
+    networks:
+      switch:
+        ipv4_address: 172.20.1.2
+    sysctls:
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
+    container_name: tun2socks
+
+  myapp:
+    image: ubuntu:latest
+    cap_add:
+      - NET_ADMIN
+    networks:
+      switch:
+        ipv4_address: 172.20.1.4
+    ports:
+      - 5000:5000
+    command: sleep 3600
+    container_name: myapp
+
+  redroid:
+    image: 'teddynight/redroid:latest'
+    privileged: true
+    volumes:
+      - ~/data:/data
+    devices:
+      - '/dev/net/tun:/dev/tun'
+    cap_add:
+      - NET_ADMIN
+    networks:
+      switch:
+        ipv4_address: 172.20.1.5
+    ports:
+      - 6666:5555
+    command:
+      - androidboot.redroid_net_proxy_type=static
+      - androidboot.hardware=mt6891
+      - ro.product.cpu.abilist=x86_64,arm64-v8a,x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+      - ro.product.brand=samsung
+      - ro.product.model=sm-g9550
+      - ro.product.name=sm-g9550
+      - ro.product.device=sm-g9550
+      - ro.product.manufacturer=samsung
+
+    container_name: android_00000X
+
+
+networks:
+  switch:
+    name: switch
+    ipam:
+      driver: default
+      config:
+        - subnet: '172.20.1.0/25'
+          gateway: 172.20.1.1
+
+# myapp connects itself automatically to tun2socks
+# redroid needs socksdroid apk to connect to an VPN
