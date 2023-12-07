@@ -1,13 +1,11 @@
 version: '3.3'
 services:
   web:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    image: golae
+    image: golae:latest
     container_name: golae
     restart: always
-    #depends_on:
-    #  - other
     ports:
-      - 80:80
+      - 80:7777

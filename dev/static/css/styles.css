@@ -1,0 +1,124 @@
+body {
+    background-image: url('../images/back_cyber.png');
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-color: #a5b6bd;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #0d2540;
+    background-position: center bottom;
+    background-origin: content-box;
+    height: 90vh;
+}
+
+/* Add this style to target anchor elements */
+a {
+    text-decoration: none; /* Remove the underline */
+    color: #0d2540; /* Set the color */
+    font-weight: bold; /* Set the font weight to bold */
+}
+body.main-container {
+    
+    overflow: hidden; /* Add this line to remove the scroll */
+
+}
+header {
+    background-color: #04a4c6;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+header img {
+    max-height: 50px;
+}
+
+main {
+    margin: 40px auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0.8 for 80% transparency) */
+}
+
+form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px; /* Adjust font size as needed */
+    color: #0d2540;
+}
+
+form input,
+form .group {
+    margin-bottom: 20px;
+    border: 1px solid #04a4c6;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+form input[type="text"] {
+    width: 100%; /* Adjust the width as needed */
+}
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.group input {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: #0d2540;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.line-box {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #04a4c6;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer img {
+    max-height: 30px;
+    margin-top: 5px;
+}

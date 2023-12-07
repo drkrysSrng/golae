@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golae Beacon Tool</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="main-container">
+    <header>
+        <!-- Wrap the image in an anchor tag with the href attribute set to the main page URL -->
+        <a href="/assign">
+            <img src="{{ url_for('static', filename='images/golae.png') }}" alt="Logo">
+        </a>
+        <h1>Golae Beacon Tool</h1>
+    </header>
+    <main>
+        <h1>Set URL or Filename Variable</h1>
+    
+        <!-- Form example -->
+        <form method="POST" action="/set_url">
+            <label for="url_variable">URL:</label>
+            <input type="text" id="url_variable" name="url_variable">
+    
+            <label for="filename_variable">FILENAME:</label>
+            <input type="text" id="filename_variable" name="filename_variable">
+    
+            <div class="group">
+                <input id="check" type="checkbox" class="check" checked>
+                <label for="delete"><span class="icon"></span> Delete previous file</label>
+            </div>
+    
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <!-- Footer example -->
+    <footer>
+        Developed by <a href="https://github.com/drkrysSrng/" target="_blank">drkrysSrng</a>
+        <!-- Wrap the image in an anchor tag -->
+        <a href="https://github.com/drkrysSrng/" target="_blank">
+            <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="Logo">
+        </a>
+    </footer>
+</body>
+</html>
